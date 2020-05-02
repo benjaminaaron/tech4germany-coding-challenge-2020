@@ -36,10 +36,24 @@ const achleiten = {
     loc: [48.58204677038562,13.503184735677362]
 };
 
+const fetchData = () => {
+    let baseUrl = 'https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations.json?ids=';
+    let urlParams = '&includeTimeseries=true&includeCurrentMeasurement=true&prettyprint=false';
+    let url = baseUrl + kachletUp.uuid + ',' + passauDonau.uuid + ',' + passauIlzstadt.uuid + ',' + achleiten.uuid + urlParams;
+
+    fetch(url, { method: "Get" })
+        .then(res => res.json())
+        .then(json => {
+            console.log('result:', json);
+            return(json);
+        });
+};
+
 module.exports = { 
     passau,
     kachletUp,
     passauDonau,
     passauIlzstadt,
-    achleiten
+    achleiten,
+    fetchData
 };
