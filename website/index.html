@@ -56,7 +56,29 @@
                     case -1:
                         trend = "fallend"; 
                 }
-                return "<center><b>" + name + "</b><br>" + value + "<br>" + trend;
+
+                let content = "<center><b>" + name + "</b><br>" + value + "<br>" + trend;
+
+                let meldestufe = "";
+                if (value >= 700) {
+                    meldestufe = "<b>Meldestufe 1</b>: 700+";
+                }
+                if (value >= 750) {
+                    meldestufe = "Meldestufe 2: 750+";
+                }
+                if (value >= 770) {
+                    meldestufe = "Meldestufe 3: 770+";
+                }
+                if (value >= 850) {
+                    meldestufe = "Meldestufe 4: 850+";
+                }
+
+                if (meldestufe) {
+                    return content + 
+                    "<div style=\"color:red\">" + meldestufe + "</div>";
+                }
+
+                return content;
             };
         </script>
          <div id="mapid"></div>
