@@ -20,3 +20,11 @@ const passauIlzstadt_loc = '48.575208623171456,13.478019136458602';
 // ACHLEITEN
 const achleiten_uuid = "c389c9e2-a5d8-4104-a4cf-510ade44f143";
 const achleiten_loc = '48.58204677038562,13.503184735677362';
+
+module.exports = { 
+    passau_loc,
+    kachletUp_loc,
+    passauDonau_loc,
+    passauIlzstadt_loc,
+    achleiten_loc
+};
