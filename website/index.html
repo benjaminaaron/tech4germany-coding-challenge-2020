@@ -14,8 +14,8 @@
         <script>
             $(document).ready(function() {
                 console.log("document ready!");
-                bundle.fetchData().then(data => {
-                    console.log('data:', data);
+                bundle.fetchData(data => {
+                    console.log("data:", data);
                     buildMap(data);
                 });
             });

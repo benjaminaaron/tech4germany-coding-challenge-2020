@@ -36,11 +36,19 @@ const achleiten = {
     loc: [48.58204677038562,13.503184735677362]
 };
 
-const fetchData = () => {
+const fetchData = callback => {
     let baseUrl = 'https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations.json?ids=';
     let urlParams = '&includeTimeseries=true&includeCurrentMeasurement=true&prettyprint=false';
     let url = baseUrl + kachletUp.uuid + ',' + passauDonau.uuid + ',' + passauIlzstadt.uuid + ',' + achleiten.uuid + urlParams;
-    return fetch(url, { method: "Get" }).then(res => res.json())
+    fetch(url, { method: "Get" })
+        .then(res => res.json())
+        .then(data => {
+            let obj = {}; // restructure array to json object for ease of use
+            for (let i = 0; i < data.length; i++) {
+                obj[data[i].uuid] = data[i];
+            }
+            callback(obj);
+        })
 };
 
 module.exports = { 
