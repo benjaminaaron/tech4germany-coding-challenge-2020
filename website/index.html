@@ -26,18 +26,37 @@
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 }).addTo(map);
+
                 L.marker(bundle.kachletUp.loc).addTo(map)
-                    .bindPopup(L.popup({"autoClose": false}).setContent(bundle.kachletUp.name))
+                    .bindPopup(L.popup({"autoClose": false}).setContent(
+                        buildPopupContent(bundle.kachletUp.name, data[bundle.kachletUp.uuid].timeseries[0].currentMeasurement)))
                     .openPopup();
                 L.marker(bundle.passauDonau.loc).addTo(map)
-                    .bindPopup(L.popup({"autoClose": false}).setContent(bundle.passauDonau.name))
+                    .bindPopup(L.popup({"autoClose": false}).setContent(
+                        buildPopupContent(bundle.passauDonau.name, data[bundle.passauDonau.uuid].timeseries[0].currentMeasurement)))
                     .openPopup();
                 L.marker(bundle.passauIlzstadt.loc).addTo(map)
-                    .bindPopup(L.popup({"autoClose": false}).setContent(bundle.passauIlzstadt.name))
+                    .bindPopup(L.popup({"autoClose": false}).setContent(
+                        buildPopupContent(bundle.passauIlzstadt.name, data[bundle.passauIlzstadt.uuid].timeseries[0].currentMeasurement)))
                     .openPopup();
                 L.marker(bundle.achleiten.loc).addTo(map)
-                    .bindPopup(L.popup({"autoClose": false}).setContent(bundle.achleiten.name))
+                    .bindPopup(L.popup({"autoClose": false}).setContent(
+                        buildPopupContent(bundle.achleiten.name, data[bundle.achleiten.uuid].timeseries[0].currentMeasurement)))
                     .openPopup();
+            };
+
+            const buildPopupContent = (name, measurement) => {
+                let value = measurement.value;
+                let trend = "";
+                switch(measurement.trend) { // from https://www.pegelonline.wsv.de/webservice/dokuRestapi
+                    case 0:
+                        trend = "gleichbleibend";
+                    case 1:
+                        trend = "steigend";
+                    case -1:
+                        trend = "fallend"; 
+                }
+                return "<center><b>" + name + "</b><br>" + value + "<br>" + trend;
             };
         </script>
          <div id="mapid"></div>
