@@ -1,5 +1,7 @@
 
-const passau_loc = [48.5665,13.43122];
+const passau = {
+    loc: [48.5665,13.43122]
+};
 
 // Using fuzzId "passau" only yielded 2 stations with Wasserstaende around Passau
 // Using the location of Passau and radius of 10 around it, the 4 stations with Wasserstande can be found
@@ -9,22 +11,34 @@ const passau_loc = [48.5665,13.43122];
 // Manually extracted the info from opening the above URL in the browser here:
 
 // KACHLET UP
-const kachletUp_uuid = "0fd56e0a-e32e-4b56-9cda-e0ce93d715c4";
-const kachletUp_loc = [48.57855473136858,13.41078588341841];
+const kachletUp = {
+    name: "Kachlet Up",
+    uuid: "0fd56e0a-e32e-4b56-9cda-e0ce93d715c4",
+    loc: [48.57855473136858,13.41078588341841]
+};
 // PASSAU DONAU
-const passauDonau_uuid = "9f12c405-35ac-4d90-9b7b-023be355867e";
-const passauDonau_loc = [48.57612011844346,13.459076672254577];
+const passauDonau = {
+    name: "Passau Donau",
+    uuid: "9f12c405-35ac-4d90-9b7b-023be355867e",
+    loc: [48.57612011844346,13.459076672254577]
+};
 // PASSAU ILZSTADT
-const passauIlzstadt_uuid = "33ceb441-23bc-4ca6-9fcd-ac35d41ef117";
-const passauIlzstadt_loc = [48.575208623171456,13.478019136458602];
+const passauIlzstadt = {
+    name: "Passau Ilzstadt",
+    uuid: "33ceb441-23bc-4ca6-9fcd-ac35d41ef117",
+    loc: [48.575208623171456,13.478019136458602]
+};
 // ACHLEITEN
-const achleiten_uuid = "c389c9e2-a5d8-4104-a4cf-510ade44f143";
-const achleiten_loc = [48.58204677038562,13.503184735677362];
+const achleiten = {
+    name: "Achleiten",
+    uuid: "c389c9e2-a5d8-4104-a4cf-510ade44f143",
+    loc: [48.58204677038562,13.503184735677362]
+};
 
 module.exports = { 
-    passau_loc,
-    kachletUp_loc,
-    passauDonau_loc,
-    passauIlzstadt_loc,
-    achleiten_loc
+    passau,
+    kachletUp,
+    passauDonau,
+    passauIlzstadt,
+    achleiten
 };
