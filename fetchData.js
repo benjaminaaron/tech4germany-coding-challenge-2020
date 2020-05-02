@@ -1,6 +1,7 @@
 
 const passau = {
-    loc: [48.5665,13.43122]
+    // slightly modified from the official location of Passau to make the map center better around the 4 stations
+    loc: [48.577643, 13.455484]
 };
 
 // Using fuzzId "passau" only yielded 2 stations with Wasserstaende around Passau
