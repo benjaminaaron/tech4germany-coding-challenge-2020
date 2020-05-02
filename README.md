@@ -4,4 +4,4 @@ My solution is a static site, so it can be accessed without setup at [benjaminaa
 
 If changes are made in `fetchData.js` they have to be rebundled using this *browserify* (`npm install -g browserify`) command:
 
-`browserify fetchData.js --s bundle > website/bundle.js`
+`browserify fetchData.js --s bundle > bundle.js`
