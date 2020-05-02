@@ -14,11 +14,13 @@
         <script>
             $(document).ready(function() {
                 console.log("document ready!");
-                let data = bundle.fetchData();
-                buildMap();
+                bundle.fetchData().then(data => {
+                    console.log('data:', data);
+                    buildMap(data);
+                });
             });
 
-            function buildMap() {
+            const buildMap = data => {
                 // center map to Passau
                 var map = L.map('mapid').setView(bundle.passau.loc, 13.5);
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
