@@ -58,6 +58,8 @@
                 }
 
                 let content = "<center><b>" + name + "</b><br>" + value + "<br>Tendenz: " + trend;
+                let timestamp = measurement.timestamp; // TODO format nicely
+                content = "<div title=\"Measurement from: " + timestamp + "\">" + content + "</div>";
 
                 let meldestufe = "";
                 if (value >= 700) {
