@@ -52,10 +52,13 @@
                 switch(measurement.trend) { // from https://www.pegelonline.wsv.de/webservice/dokuRestapi
                     case 0:
                         trend = "gleichbleibend";
+                        break;
                     case 1:
                         trend = "steigend";
+                        break;
                     case -1:
                         trend = "fallend"; 
+                        break;
                 }
 
                 let content = "<center><b>" + name + "</b><br>" + value + "<br>Tendenz: " + trend;
